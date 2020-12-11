@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package telebotrpc;
+
+service Telebot {
+    rpc Send(TelegramMessage) returns (TelegramSent);
+}
+
+message TelegramMessage {
+    int32 uID = 1;
+    string message = 2;
+    string layout = 3;
+    bool error = 4;
+}
+
+message TelegramSent {
+    bool sent = 1;
+    string error = 2;
+}
